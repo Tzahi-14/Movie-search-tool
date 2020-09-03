@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
+    <id id="nav-bar">
+        <input type="text" placeholder="Search for a movie" id="movie-input">
+        <button id="search-btn">Search</button>
+    </id>
+    <div class="container"></div>
+
+
+
+
+    <script id="movies-template" type="text/x-handlebars-template">
+  {{#each data}}
+    <div id="movie" data-id="{{imdbID}}">
+        <div id="title">{{Title}}</div>
+        <div id="img"><img src="{{Poster}}"> <div id="year">Year : {{Year}}</div></div>
+        <ul id="rating"></ul>
+    </div>
+  {{/each}}
+  </script>
+
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script> -->
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>

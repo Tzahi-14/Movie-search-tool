@@ -1,0 +1,20 @@
+body {
+    background-color: gray;
+}
+
+#nav-bar {
+    /* display: grid;
+    font-family: Impact, Charcoal, sans-serif;
+    text-decoration: overline solid rgb(68, 68, 68);
+    text-justify: auto;
+    font-style: normal; */
+
+    display: flex;
+    align-items: center
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(0, 128, 100);
+}
