@@ -9,28 +9,26 @@
 </head>
 
 <body>
-
-    <id id="nav-bar">
+<h2>Choose your movie</h2>
+    <div id="nav-bar">
         <input type="text" placeholder="Search for a movie" id="movie-input">
         <button id="search-btn">Search</button>
-    </id>
+    </div>
+
     <div class="container"></div>
 
-
-
-
+    
     <script id="movies-template" type="text/x-handlebars-template">
-  {{#each data}}
-    <div id="movie" data-id="{{imdbID}}">
-        <div id="title">{{Title}}</div>
-        <div id="img"><img src="{{Poster}}"> <div id="year">Year : {{Year}}</div></div>
-        <ul id="rating"></ul>
+  {{#each data1}}
+    <div id="movie" data-id="{{id}}">
+        <div id="title">{{title}}</div>
+        <div id="img"><img src="{{img}}"> <div id="year">Year : {{year}}</div></div>
+        <ul class="rating"></ul>
     </div>
-  {{/each}}
+    {{/each}}
   </script>
 
     <script src="./handlebars/dist/handlebars.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script> -->
     <script src="./jquery/dist/jquery.js"></script>
     <script src="Renderer.js"></script>
     <script src="main.js"></script>

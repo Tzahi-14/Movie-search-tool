@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const urllib = require('urllib');
+const { title } = require('process');
 
 app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
@@ -20,10 +21,13 @@ app.get('/movies/:title', function (req, res) {
         const movieArr = []
         const movies = JSON.parse(movieData).Search
         for (let movie of movies) {
-            const movieStrTitle = movie.Title.toLocaleLowerCase()
-            if (movieStrTitle.includes(movieTitle.toLocaleLowerCase())) {
-                movieArr.push(movie)
+            const movieInfo = {
+                title: movie.Title,
+                img: movie.Poster,
+                id: movie.imdbID,
+                year: movie.Year
             }
+            movieArr.push(movieInfo)
         }
         console.log(movieArr)
         res.send(movieArr)

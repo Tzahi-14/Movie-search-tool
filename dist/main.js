@@ -1,4 +1,4 @@
-const renderer = new Renderer
+const renderer = new Renderer()
 
 $("#search-btn").on("click", function () {
     const val = $("#movie-input").val()
@@ -6,6 +6,7 @@ $("#search-btn").on("click", function () {
     $.get(`/movies/${val}`, (title) => {
         console.log(title)
         renderer.render(title)
+        // console.log(renderer.render(title))
     })
 })
 
@@ -14,10 +15,13 @@ $(".container").on("click","#img",function(){
     $.ajax({
         method: "GET",
         url: `http://www.omdbapi.com/?apikey=a2e2ca53&i=${getRating}`,
-        success: (data) => {
-            const rating = data.Ratings
-            for(let r of rating){
-                $(this).append(`<li id="ratingLi">${r.Value}</li>`)
+        success: (data2) => {
+            const rating = data2.Ratings
+            if(getRating){
+                $(this).parent().find('.rating').empty()
+                for(let r of rating){
+                    $(this).parent().find('.rating').append(`<li id="rat">${r.Value}</li>`)
+                }
             }
         }
     })

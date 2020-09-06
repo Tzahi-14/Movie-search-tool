@@ -1,12 +1,12 @@
-class Renderer{
-    constructor(){
+class Renderer {
+    constructor() {
 
     }
-    render (data){
+    render(data1) {
         $(".container").empty()
         const source = $("#movies-template").html()
         const template = Handlebars.compile(source)
-        const newHtml = template({ data })
+        const newHtml = template({ data1 })
         $(".container").append(newHtml)
     }
 }
